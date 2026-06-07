@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Lesson Planner</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-copy">
+        <p class="eyebrow">Curated week review</p>
+        <h1>Weekly Lesson Planner</h1>
+        <p class="lede">
+          Scan upcoming lesson blocks, narrow the week by planning needs, and prepare the next class with one focused detail view.
+        </p>
+      </div>
+      <div class="week-summary" aria-label="Week summary">
+        <span class="summary-number" id="visible-count">0</span>
+        <span class="summary-label" id="visible-count-label">matching lessons</span>
+      </div>
+    </header>
+
+    <main class="planner-shell">
+      <section class="filters-panel" aria-labelledby="filters-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Focus</p>
+            <h2 id="filters-heading">Planning Filters</h2>
+          </div>
+          <button class="text-button" id="reset-filters" type="button">Reset</button>
+        </div>
+
+        <form class="filters-grid" id="filters-form">
+          <div class="field field-wide">
+            <label for="search">Search objectives and activities</label>
+            <input id="search" name="search" type="search" placeholder="Try fractions, debate, lab, or inference">
+          </div>
+
+          <div class="field">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject"></select>
+          </div>
+
+          <div class="field">
+            <label for="gradeBand">Grade band</label>
+            <select id="gradeBand" name="gradeBand"></select>
+          </div>
+
+          <div class="field">
+            <label for="duration">Duration</label>
+            <select id="duration" name="duration"></select>
+          </div>
+
+          <div class="field">
+            <label for="prepStatus">Prep status</label>
+            <select id="prepStatus" name="prepStatus"></select>
+          </div>
+
+          <div class="field">
+            <label for="materialNeed">Material need</label>
+            <select id="materialNeed" name="materialNeed"></select>
+          </div>
+        </form>
+      </section>
+
+      <section class="results-panel" aria-labelledby="results-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Week at a glance</p>
+            <h2 id="results-heading">Lesson Results</h2>
+          </div>
+          <p class="result-note" id="result-note" aria-live="polite">Showing all lessons.</p>
+        </div>
+        <div
+          class="lesson-list"
+          id="lesson-list"
+          aria-label="Matching lesson blocks"
+          aria-describedby="result-note"
+          aria-live="polite"
+        ></div>
+      </section>
+
+      <aside class="details-panel" aria-labelledby="details-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Selected lesson</p>
+            <h2 id="details-heading">Preparation Details</h2>
+          </div>
+        </div>
+        <div id="lesson-details" aria-live="polite"></div>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
