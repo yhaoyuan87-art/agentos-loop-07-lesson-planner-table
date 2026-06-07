@@ -266,6 +266,12 @@ function getFilteredLessons() {
 
   return lessons.filter((lesson) => {
     const matchesSearch = !query ||
+      lesson.title.toLowerCase().includes(query) ||
+      lesson.subject.toLowerCase().includes(query) ||
+      lesson.gradeBand.toLowerCase().includes(query) ||
+      lesson.prepStatus.toLowerCase().includes(query) ||
+      lesson.materialNeed.toLowerCase().includes(query) ||
+      lesson.materials.join(" ").toLowerCase().includes(query) ||
       lesson.objective.toLowerCase().includes(query) ||
       lesson.activitySummary.toLowerCase().includes(query);
     const matchesDuration = !state.duration || getDurationBucket(lesson.durationMinutes) === state.duration;
